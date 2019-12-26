@@ -33,7 +33,7 @@
               <h5 class="card-title pt-3 pl-3">{{ playlist.title }}</h5>
               <div class="card-body">
                   <a class="card-text">{{ playlist.title }}</a>
-                  <a href="/playlists/{{ key }}" class="btn btn-primary btn-sm mt-3 float-right">Смотреть</a>
+                  <a href="/playlist/{{ key }}/{{ playlists.get(key).videos[0] }}" class="btn btn-primary btn-sm mt-3 float-right">Смотреть</a>
               </div>
           </div>
       </div>

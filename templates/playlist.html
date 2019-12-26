@@ -14,8 +14,8 @@
 
         <div class="col-4">
             <nav class="nav flex-column mt-4">
-                {% for counter, vid_id in enumerate(playlist.videos, 1) %}
-                <a class="nav-link " href="/playlist/{{ playlist_id }}/{{ vid_id }}">{{ counter }}. {{ videos.get(vid_id).title }}</a>
+                {% for vid_id in playlist.videos %}
+                <a class="nav-link " href="/playlist/{{ playlist_id }}/{{ vid_id }}">{{ loop.index }}. {{ videos.get(vid_id).title }}</a>
                 {% endfor %}
             </nav>
         </div>

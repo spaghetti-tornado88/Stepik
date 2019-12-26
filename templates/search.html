@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block container %}
+<p>{{ test }}</p>
 <div class="container">
 
     <div class="mt-4 mb-3"><a href="/" class="btn-outline-secondary">Назад</a></div>
@@ -7,11 +8,11 @@
     <form>
     <div class="form-row">
       <div class="col-7">
-        <input type="text" class="form-control" placeholder="Введите слова">
+        <input name="q" type="text" class="form-control" placeholder="Что ищем?">
       </div>
 
       <div class="col">
-        <input type="button" class="btn btn-primary" value="Найти">
+         <input name="v" type="button" class="btn btn-primary" value="Найти">
       </div>
     </div>
   </form>

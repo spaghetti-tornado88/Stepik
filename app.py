@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 invite_string = """<h1>Привет, это Stepik Snow, портал по видео про сноубординг.</h1>
 <h3>Перейдите на /about чтобы посмотреть инфрмацию.</h3>
@@ -17,11 +17,11 @@ tags_list = ["новичку", "лекции", "кино", "уроки"]
 videos = {
     0: {"title": "Школа сноуборда. Урок 5 - подъемник и катание на склоне", "url": "bnUJW41aJOM",
         "tags": ["новичку", "уроки"]},
-    1: {"title": "Школа сноуборда. Урок 4 - Первые шаги на склоне", "url": "D7rJG5MBok",
+    1: {"title": "Школа сноуборда. Урок 4 - Первые шаги на склоне", "url": "-D7rJG5MBok",
         "tags": ["новичку", "уроки"]},
     2: {"title": "Школа сноуборда. Урок 6 - повороты с перекантовкой", "url": "R7axkU3NgkA",
         "tags": ["новичку", "уроки"]},
-    3: {"title": "Бюджет поездки на горнолыжный курорт. Почему время дороже денег?", "url": "bnUJW41aJOM",
+    3: {"title": "Бюджет поездки на горнолыжный курорт. Почему время дороже денег?", "url": "TrSvHNkyEsA",
         "tags": ["лекции"]},
     4: {"title": "Школа сноуборда. Урок 7 - базовые элементы фристайла", "url": "GSQ4iG6t-Fs",
         "tags": ["новичку", "уроки"]},
@@ -105,11 +105,11 @@ def playlist_item(playlist_id, video_id):
     #
     # else:
     #     return page_not_found(404)
-    return render_template('playlist.html', playlist=playlists.get(int(playlist_id)), videos=videos, video=videos.get(int(video_id)), playlist_id=playlist_id, video_id=video_id)
+    return render_template('playlist.html', playlist=playlists.get(int(playlist_id)), videos=videos,
+                           video=videos.get(int(video_id)), playlist_id=playlist_id, video_id=video_id)
 
 
 @app.route('/search')
-@app.route('/find')
 def search():
     """ Поиск по слову. Ищет в названии видео или в тегах к нему"""
     # return_string = ''
@@ -121,7 +121,8 @@ def search():
     # if return_string == '':
     #     return_string = 'Таких видео у нас нет!'
     # return return_string
-    return render_template('search.html')
+    test = request.args.get('q')
+    return render_template('search.html', test=test)
 
 # Подумал над логикой в проекте и реализовал систему тегов
 @app.route('/tags/<tag_title>')
@@ -138,4 +139,4 @@ def tags(tag_title):
         return page_not_found(404)
 
 
-app.run('0.0.0.0',8888)
+app.run('0.0.0.0', 8888)
