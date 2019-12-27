@@ -5,6 +5,7 @@
 
     <div class="mt-4 mb-3"><a href="/" class="btn-outline-secondary">Назад</a></div>
     <h2 class="р2 mb-3"><strong>Поиск: {{ search_results|length }} видео</strong></h2>
+
     <form>
         <div class="form-row">
             <div class="col-7">
@@ -31,7 +32,7 @@
           <div class="card" style="width: 18rem;">
               <img src="https://img.youtube.com/vi/{{ video.url }}/hqdefault.jpg" class="card-img-top fluid">
               <div class="card-body">
-                  <a class="card-text">{{ video.title }}</a>
+                  <h5 class="card-title"><strong>{{ video.title }}</strong></h5>
                   <a href="/playlist/{{ video.playlist }}/{{ video_id }}" class="btn btn-primary btn-sm mt-3">Открыть</a>
               </div>
           </div>
