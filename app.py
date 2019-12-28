@@ -58,7 +58,7 @@ def page_not_found(error):
 def playlist_item(playlist_id, video_id):
     """Вывод информации о плейлисте, списка видео в нем и текущего ролика из этого плейлиста"""
     videos_list = playlists.get(int(playlist_id)).get('videos')  # Сохранил в переменную для оптимизации
-    # Если переданный номер видео занимает последнюю позицию в плейлисте
+    # Если переданный в функцию номер видео занимает последнюю позицию в плейлисте
     # то по кнопке будет переход на первое видео
     if videos_list.index(int(video_id))+1 == len(videos_list):
         next_video = videos_list[0]
