@@ -85,4 +85,5 @@ def search():
     return render_template('search.html', search_word=search_word, tags=tags_list, search_results=search_results)
 
 
-app.run('0.0.0.0', 8888)
+if __name__ == '__main__':
+    app.run()
